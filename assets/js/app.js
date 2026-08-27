@@ -773,7 +773,10 @@
     meta('meta[name="twitter:image"]', img);
 
     var can = $('#canonical');
-    if (can) can.setAttribute('href', url);
+    /* trailing slash: siteURL() strips it, but the sitemap lists the root WITH
+       one. A canonical that disagrees with the sitemap (and redirects) is a
+       needless SEO wobble, so put it back for the home page. */
+    if (can) can.setAttribute('href', url + '/');
 
     injectSchema(url, img, desc);
   }

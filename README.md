@@ -99,24 +99,98 @@ from the menu automatically. Nothing is left half-broken.
 
 Example: delete all three packages and the whole Pricing section vanishes.
 
-## 6. Put it online (free)
+## 6. Your site is live
 
-1. Go to <https://app.netlify.com/drop>
-2. Drag this entire folder onto the page.
-3. Done — you get a live link in about 20 seconds.
+**<https://ra-him8.github.io/mahmoud-portofolio/>**
 
-> **Before you drag:** move the `brand/` folder somewhere else on your computer
-> first. It's 21 MB of logo files — a ProRes master and 90 animation frames —
-> that your visitors never need. The website itself is only about 380 KB.
-> Put `brand/` back afterwards; nothing links to it.
+It is hosted free on GitHub Pages, from this repository:
+<https://github.com/Ra-Him8/mahmoud-portofolio>
 
-To use your own domain later, buy one and point it there in Netlify's settings.
+---
 
-> **One thing to know:** `admin.html` gets uploaded too, so anyone who guesses the
-> address can open your panel. They **cannot** change your real site — the panel only
-> edits their own browser, and publishing needs file access. But if you'd rather it
-> not be public at all, just delete `admin.html` from the uploaded copy and keep it
-> on your computer.
+## 7. Only you can change it — here is exactly why
+
+You asked to make sure nobody but you can edit the portfolio. Three things
+make that true, and it is worth understanding which one actually matters.
+
+**1. The control panel is not on the internet.**
+`admin.html` lives in your repository but is never published. `_config.yml`
+tells GitHub Pages to skip it. Check for yourself — this address returns
+"404 Not Found":
+<https://ra-him8.github.io/mahmoud-portofolio/admin.html>
+
+**2. The panel has a passcode.**
+Your code is in `ADMIN-PASSCODE.txt` on your computer. That file is *not*
+uploaded to GitHub. Instructions for changing it are inside.
+
+**3. This is the one that really matters.**
+Your live site reads its content from `assets/js/data.js` **in your GitHub
+repository**. Changing that file requires signing in as **Ra-Him8**. Even if a
+stranger somehow opened the control panel, their edits would only change what
+*they* see in *their own* browser, on their own computer, until they cleared it.
+Your site, and everyone else's view of it, would be untouched.
+
+So: the passcode is a lock on a door that isn't on the street. Useful, but your
+GitHub account is the real key.
+
+---
+
+## 8. Changing your site after it is live
+
+Editing is two steps: change it, then publish it.
+
+### Step 1 — change it
+
+1. Open `admin.html` from **your own computer** (double-click it).
+2. Enter your passcode.
+3. Edit anything — add a video, remove one, change your phone number.
+4. Click **Download data.js**. A new `data.js` lands in your Downloads.
+
+Nothing is live yet. What you see now is only on your machine.
+
+### Step 2 — publish it
+
+**The easy way, no software needed:**
+
+1. Go to <https://github.com/Ra-Him8/mahmoud-portofolio/tree/main/assets/js>
+2. Click on `data.js`.
+3. Click the pencil icon (top right) → select everything → paste in the new file.
+   Or use **Add file → Upload files** and drag the new `data.js` in.
+4. Click **Commit changes**.
+
+Wait about a minute. Your site updates itself.
+
+**If the change involves a new video:** upload it to `videos/web/` the same way
+(**Add file → Upload files**), then point at it in the panel. Compress it first
+by dragging it onto `videos/COMPRESS-FOR-WEB.bat` — GitHub refuses files over
+100 MB, and an uncompressed export will be too big *and* too slow for visitors.
+
+**If you know git:**
+
+```bash
+git add -A
+git commit -m "Update portfolio"
+git push
+```
+
+---
+
+## 9. Adding and removing videos
+
+**To add one:**
+1. Drag your export onto `videos/COMPRESS-FOR-WEB.bat`.
+2. `admin.html` → **Projects** → **Add**. Set the title, category, shape
+   (`9/16` for reels, `16/9` for wide), length, and pick the file from
+   `videos/web/`.
+3. Download `data.js`, then publish both it and the new video (step 2 above).
+
+**To remove one:** `admin.html` → **Projects** → the **×** on that project →
+Download `data.js` → publish. The video file can stay where it is; nothing
+points at it any more.
+
+**To hide a whole section:** empty its list in the panel. The section and its
+menu link disappear on their own. That is how pricing, reviews, the client
+strip and the numbers are hidden right now.
 
 ---
 
@@ -127,11 +201,12 @@ without it, but you'll be advertising placeholder content.
 
 ## Before you publish
 
-- [ ] **Replace the fake testimonials.** `admin.html → Client reviews`. Four
-      invented reviews ship with the site. A client who checks and finds a fake
-      one is gone for good.
-- [ ] **Fix the numbers.** `admin.html → Numbers`. It currently claims 320 videos,
-      65 clients, 18M views. Make them true.
+- [x] ~~Replace the fake testimonials~~ — removed. The section now invites real
+      clients to send one over WhatsApp. Paste them in as they arrive:
+      `admin.html → Client reviews`.
+- [ ] **Put your real numbers in.** `admin.html → Numbers`. The invented ones
+      (320 videos, 65 clients, 18M views) are gone and the strip is hidden. Add
+      true figures and it comes back — even modest real numbers beat none.
 - [ ] **Add your real photo.** `admin.html → About you → Your photo`. Right now
       it's the "MM" monogram where your face should be.
 - [x] ~~Put your videos in~~ — done. Six videos are live and compressed.
@@ -142,9 +217,12 @@ without it, but you'll be advertising placeholder content.
       site never touches.
 - [ ] **Fix your social links.** `admin.html → Social links` — they all point at
       the homepages of Instagram, TikTok etc., not at your profiles.
-- [ ] **Check the prices.** `admin.html → Pricing`. They're based on real market
-      research, but they're my numbers, not yours.
-- [ ] **Download data.js** and put it in `assets/js/`, replacing the old one.
+- [ ] **Decide about pricing.** The section is off, as you asked. The four
+      researched packages are kept commented inside `assets/js/data.js` — delete
+      the `//` in front of them to bring it back.
+- [ ] **Add the real brands you have worked with.** `admin.html → Client logos`.
+      Empty right now because the names there were invented.
+- [ ] **Publish your changes** — see section 8 above.
 
 ## After you buy a domain
 
@@ -270,18 +348,72 @@ python -m http.server 4321
 
 مثال: امسح الباقات التلاتة وقسم الأسعار كله هيختفي.
 
-## ٦. تنشر الموقع (مجاناً)
+## ٦. الموقع شغّال دلوقتي
 
-١. ادخل على <https://app.netlify.com/drop>
-٢. اسحب الفولدر ده كله على الصفحة.
-٣. خلاص — هتاخد لينك شغال في حوالي ٢٠ ثانية.
+**<https://ra-him8.github.io/mahmoud-portofolio/>**
 
-لو عايز دومين باسمك، اشتريه ووصّله من إعدادات Netlify.
+مستضاف مجاناً على GitHub Pages من الريبو ده:
+<https://github.com/Ra-Him8/mahmoud-portofolio>
 
-> **حاجة مهمة تعرفها:** ملف `admin.html` بيترفع هو كمان، فأي حد يخمّن اللينك
-> يقدر يفتح اللوحة. هو **مش** هيقدر يغيّر موقعك الحقيقي — اللوحة بتعدّل في
-> المتصفح بتاعه هو بس. بس لو مش عايزها تكون متاحة أصلاً، امسح `admin.html`
-> من النسخة المرفوعة وخليه على جهازك.
+---
+
+## ٧. محدش غيرك يقدر يغيّر فيه — وده السبب
+
+**١. لوحة التحكم مش موجودة على النت أصلاً.**
+ملف `admin.html` موجود في الريبو بس مش بيتنشر. جرّب بنفسك — اللينك ده
+بيطلّع صفحة غير موجودة:
+<https://ra-him8.github.io/mahmoud-portofolio/admin.html>
+
+**٢. اللوحة عليها كود.**
+الكود بتاعك في ملف `ADMIN-PASSCODE.txt` على جهازك. الملف ده مش بيترفع على GitHub.
+
+**٣. وده أهم حاجة.**
+الموقع بيقرا محتواه من ملف `assets/js/data.js` **اللي في الريبو بتاعك**،
+وعشان تغيّر الملف ده لازم تكون داخل بحساب **Ra-Him8**. يعني حتى لو حد فتح
+اللوحة، التعديل هيظهر في المتصفّح بتاعه هو بس، وموقعك مايتأثرش خالص.
+
+---
+
+## ٨. إزاي تغيّر في الموقع بعد ما بقى شغّال
+
+خطوتين: تعدّل، بعدين تنشر.
+
+### خطوة ١ — تعدّل
+
+١. افتح `admin.html` من **جهازك انت**.
+٢. اكتب الكود.
+٣. غيّر أي حاجة — ضيف فيديو، امسح فيديو، غيّر رقمك.
+٤. دوس **Download data.js**.
+
+لحد دلوقتي مفيش حاجة اتنشرت — اللي شايفه ده على جهازك بس.
+
+### خطوة ٢ — تنشر
+
+**الطريقة السهلة، منغير أي برامج:**
+
+١. ادخل على <https://github.com/Ra-Him8/mahmoud-portofolio/tree/main/assets/js>
+٢. دوس على `data.js`.
+٣. دوس علامة القلم ← حدد كل المحتوى ← الصق الملف الجديد مكانه.
+٤. دوس **Commit changes**.
+
+استنى حوالي دقيقة والموقع بيحدّث نفسه.
+
+**لو التغيير فيه فيديو جديد:** ارفعه في `videos/web/` بنفس الطريقة
+(**Add file ← Upload files**)، بس **اضغطه الأول** بإنك تسحبه على
+`videos/COMPRESS-FOR-WEB.bat` — GitHub بيرفض أي ملف أكبر من ١٠٠ ميجا.
+
+---
+
+## ٩. تضيف أو تمسح فيديوهات
+
+**عشان تضيف:** اسحب الفيديو على `COMPRESS-FOR-WEB.bat` ← `admin.html` ←
+**Projects** ← **Add** ← حدد الاسم والنوع والشكل (`9/16` للريلز،
+`16/9` للعريض) والمدة ← نزّل `data.js` ← انشر.
+
+**عشان تمسح:** `admin.html` ← **Projects** ← علامة **×** ← نزّل `data.js` ← انشر.
+
+**عشان تخفي قسم كامل:** فضّي اللستة بتاعته من اللوحة. القسم ولينكه في
+المنيو بيختفوا لوحدهم. كده الأسعار والريفيوز والعملاء والأرقام مخفيين دلوقتي.
 
 ---
 
