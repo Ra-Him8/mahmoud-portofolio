@@ -1,0 +1,14 @@
+{
+  "name": "Mahmoud Mohamed — Video Editor",
+  "short_name": "M. Mohamed",
+  "description": "Video editor: reels, YouTube, commercials and wedding films.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07070B",
+  "theme_color": "#07070B",
+  "icons": [
+    { "src": "assets/img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

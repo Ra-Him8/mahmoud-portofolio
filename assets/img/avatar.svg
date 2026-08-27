@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs><linearGradient id="a" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#14E0C8"/><stop offset="100%" stop-color="#FF6A2B"/>
+  </linearGradient></defs>
+  <rect width="200" height="200" rx="100" fill="#14161F"/>
+  <text x="100" y="128" text-anchor="middle" font-family="Sora,sans-serif" font-size="76"
+        font-weight="800" fill="url(#a)">MM</text>
+</svg>

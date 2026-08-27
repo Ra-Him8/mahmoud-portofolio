@@ -1,0 +1,20 @@
+# GitHub Pages reads this file.
+# Everything listed under "exclude" stays in your repository but is NEVER
+# published to the public website.
+#
+# admin.html is here on purpose: your control panel should not be on the
+# internet at all. You open it from your own computer.
+
+title: Mahmoud Mohamed — Video Editor & Colorist
+description: Video editor and colorist based in Cairo, working worldwide.
+
+exclude:
+  - admin.html
+  - assets/js/admin.js
+  - assets/css/admin.css
+  - brand/
+  - videos/COMPRESS-FOR-WEB.bat
+  - videos/PUT-YOUR-VIDEOS-HERE.txt
+  - README.md
+  - netlify.toml
+  - .gitignore

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="1280" height="256">
+  <title>Mahmoud Mohamed - horizontal, white</title>
+  <path d="M14 45V19l9 13 9-13v26" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M38 45V19l12 13-12 13z" fill="#FFFFFF"/>
+  <line x1="35" y1="6" x2="35" y2="58" stroke="#FFFFFF" stroke-width="1.5" opacity=".5"/>
+  <circle cx="35" cy="32" r="3.2" fill="#FFFFFF"/>
+  <text x="72" y="31" font-family="Sora, 'Segoe UI Black', Arial Black, sans-serif" font-weight="800"
+        font-size="20" letter-spacing="-0.6" fill="#FFFFFF">MAHMOUD MOHAMED</text>
+  <text x="73" y="47" font-family="Sora, 'Segoe UI', Arial, sans-serif" font-weight="600"
+        font-size="8.4" letter-spacing="3.1" fill="#FFFFFF" opacity=".65">VIDEO EDITOR &amp; COLORIST</text>
+</svg>

@@ -1,0 +1,19 @@
+# ---------------------------------------------------------------------------
+# YOUR VIDEO MASTERS — these must never be pushed.
+# GitHub refuses any file over 100 MB, and reel1.mp4 is 293 MB.
+# The compressed copies in videos/web/ ARE pushed — that is what the site uses.
+# ---------------------------------------------------------------------------
+videos/*.mp4
+videos/*.MP4
+videos/*.mov
+videos/*.MOV
+videos/*.MTS
+videos/*.avi
+
+# Your admin passcode reminder — stays on your computer only.
+ADMIN-PASSCODE.txt
+
+# Junk
+.DS_Store
+Thumbs.db
+desktop.ini

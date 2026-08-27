@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#07070B">
+
+<title>Mahmoud Mohamed — Video Editor &amp; Colorist | Cairo</title>
+<meta name="description" content="Video editor specialising in reels, YouTube, commercials and wedding films. Cinematic colour grading and sound design. Based in Cairo, working worldwide.">
+<meta name="keywords" content="video editor, montage, colorist, Cairo, Egypt, reels editor, wedding film, مونتير, مونتاج فيديو">
+<meta name="author" content="Mahmoud Mohamed">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="canonical" href="/" id="canonical">
+
+<!-- Open Graph — og:image MUST be PNG/JPG; social platforms will not render SVG -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mahmoud Mohamed">
+<meta property="og:title" content="Mahmoud Mohamed — Video Editor &amp; Colorist">
+<meta property="og:description" content="Raw footage in. Stories out. Reels, YouTube, commercials and wedding films — cut, graded and mixed in Cairo.">
+<meta property="og:image" content="assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mahmoud Mohamed — Raw footage in. Stories out.">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="ar_EG">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mahmoud Mohamed — Video Editor &amp; Colorist">
+<meta name="twitter:description" content="Raw footage in. Stories out. Reels, YouTube, commercials and wedding films.">
+<meta name="twitter:image" content="assets/img/og.png">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="alternate icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body dir="ltr">
+
+<!-- ---------- PRELOADER ---------- -->
+<div class="preloader" id="preloader">
+  <div class="preloader__inner">
+    <div class="logo__mark" style="width:64px;height:64px;border-radius:18px">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <defs>
+          <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%"  stop-color="#14E0C8"/>
+            <stop offset="55%" stop-color="#FFB020"/>
+            <stop offset="100%" stop-color="#FF6A2B"/>
+          </linearGradient>
+        </defs>
+        <path d="M14 46V18l9 14 9-14v28" fill="none" stroke="url(#pg)" stroke-width="5"
+              stroke-linecap="round" stroke-linejoin="round"
+              stroke-dasharray="120" stroke-dashoffset="120">
+          <animate attributeName="stroke-dashoffset" from="120" to="0" dur="1.1s" fill="freeze"/>
+        </path>
+        <path d="M38 46V18l12 14-12 14z" fill="url(#pg)" opacity="0">
+          <animate attributeName="opacity" from="0" to="1" begin="0.8s" dur=".5s" fill="freeze"/>
+        </path>
+      </svg>
+    </div>
+    <div class="preloader__bar"><i id="preBar"></i></div>
+    <div class="preloader__pct" id="prePct">0%</div>
+  </div>
+</div>
+
+<!-- ---------- AMBIENT ---------- -->
+<div class="bg-fx" aria-hidden="true">
+  <span class="blob blob--1"></span>
+  <span class="blob blob--2"></span>
+  <span class="blob blob--3"></span>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label" id="cursorLabel"></span></div>
+
+<!-- ---------- NAV ---------- -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+
+    <a href="#top" class="logo" aria-label="Home">
+      <span class="logo__mark">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <defs>
+            <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%"  stop-color="#14E0C8"/>
+              <stop offset="55%" stop-color="#FFB020"/>
+              <stop offset="100%" stop-color="#FF6A2B"/>
+            </linearGradient>
+            <clipPath id="lclip"><rect x="0" y="0" width="32" height="64"/></clipPath>
+          </defs>
+          <!-- cool half / "before" -->
+          <rect width="64" height="64" fill="#14E0C8" opacity=".1" clip-path="url(#lclip)"/>
+          <!-- M monogram -->
+          <path d="M14 45V19l9 13 9-13v26" fill="none" stroke="url(#lg)" stroke-width="5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- play triangle = the "after" -->
+          <path d="M38 45V19l12 13-12 13z" fill="url(#lg)"/>
+          <!-- the slider divider: this is the whole brand idea -->
+          <line x1="35" y1="6" x2="35" y2="58" stroke="#F2F3F7" stroke-width="1.5" opacity=".55"/>
+          <circle cx="35" cy="32" r="3.2" fill="#F2F3F7"/>
+        </svg>
+      </span>
+      <span class="logo__text">
+        <span class="logo__name" data-bind="profile.name">Mahmoud Mohamed</span>
+        <span class="logo__role" data-bind="profile.role">Video Editor</span>
+      </span>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Main">
+      <a class="nav__link" href="#showreel" data-i18n="nav.showreel">Showreel</a>
+      <a class="nav__link" href="#showcase" data-i18n="nav.showcase">Before / After</a>
+      <a class="nav__link" href="#work"     data-i18n="nav.work">Work</a>
+      <a class="nav__link" href="#services" data-i18n="nav.services">Services</a>
+      <a class="nav__link" href="#pricing"  data-i18n="nav.pricing">Pricing</a>
+      <a class="nav__link" href="#about"    data-i18n="nav.about">About</a>
+      <a class="nav__link" href="#contact"  data-i18n="nav.contact">Contact</a>
+    </nav>
+
+    <div class="nav__actions">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="is-on">EN</button>
+        <button type="button" data-lang="ar">ع</button>
+      </div>
+      <a class="btn btn--wa" data-wa href="#" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+        <span data-i18n="nav.hire">Hire me</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ---------- HERO ---------- -->
+  <section class="hero">
+    <div class="wrap hero__grid">
+
+      <span class="hero__badge" data-avail>
+        <span class="dot"></span>
+        <span data-bind="profile.availableText">Available for new projects</span>
+      </span>
+
+      <h1 class="hero__title">
+        <span class="line"><span data-bind="profile.heroLine1">Raw footage in.</span></span>
+        <span class="line"><span class="grad-text" data-bind="profile.heroLine2">Stories out.</span></span>
+      </h1>
+
+      <p class="hero__tag" data-bind="profile.tagline"></p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" data-wa href="#" data-cursor="Chat">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+          <span data-i18n="hero.cta">Start a project</span>
+        </a>
+        <a class="btn btn--ghost btn--lg" href="#showcase">
+          <span data-i18n="hero.cta2">See before &amp; after</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+
+      <div class="hero__meta">
+        <span style="color:var(--muted);font-size:var(--fs-small)" data-bind="profile.location"></span>
+        <div class="hero__socials" data-render="socials"></div>
+      </div>
+
+    </div>
+    <div class="scroll-cue"><i></i><span data-i18n="hero.scroll">Scroll</span></div>
+  </section>
+
+  <!-- ---------- STATS ---------- -->
+  <div class="stats" data-render="stats"></div>
+
+  <!-- ---------- CLIENT MARQUEE ---------- -->
+  <div class="marquee" data-render="clients" aria-label="Clients"></div>
+
+  <!-- ---------- SHOWREEL ---------- -->
+  <section class="section section--tight" id="showreel">
+    <div class="wrap" data-render="showreel"></div>
+  </section>
+
+  <!-- ---------- BEFORE / AFTER ---------- -->
+  <section class="section" id="showcase">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-i18n="ba.eyebrow">The difference</span>
+          <h2 class="section-title" data-i18n="ba.title">Before <span class="grad-text">&amp;</span> after</h2>
+          <p class="section-lead" data-bind="beforeAfterIntro"></p>
+        </div>
+        <div class="filters" data-render="filters" data-target="ba"></div>
+      </div>
+      <div class="ba-list" data-render="beforeAfter"></div>
+    </div>
+  </section>
+
+  <!-- ---------- WORK ---------- -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-i18n="work.eyebrow">Selected work</span>
+          <h2 class="section-title" data-i18n="work.title">Recent <span class="grad-text">projects</span></h2>
+        </div>
+        <div class="filters" data-render="filters" data-target="work"></div>
+      </div>
+      <div class="work-grid" data-render="work"></div>
+    </div>
+  </section>
+
+  <!-- ---------- SERVICES ---------- -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-i18n="svc.eyebrow">What I do</span>
+          <h2 class="section-title" data-i18n="svc.title">Services built around <span class="grad-text">attention</span></h2>
+        </div>
+      </div>
+      <div class="svc-grid" data-render="services"></div>
+    </div>
+  </section>
+
+  <!-- ---------- PROCESS ---------- -->
+  <section class="section" id="process">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-i18n="proc.eyebrow">How it works</span>
+          <h2 class="section-title" data-i18n="proc.title">Four steps, <span class="grad-text">no surprises</span></h2>
+        </div>
+      </div>
+      <div class="process" data-render="process"></div>
+    </div>
+  </section>
+
+  <!-- ---------- ABOUT ---------- -->
+  <section class="section" id="about">
+    <div class="wrap" data-render="about"></div>
+  </section>
+
+  <!-- ---------- TOOLS ---------- -->
+  <div class="marquee marquee--rev" data-render="tools" aria-label="Software"></div>
+
+  <!-- ---------- TESTIMONIALS ---------- -->
+  <section class="section" id="testimonials">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-i18n="quo.eyebrow">Kind words</span>
+          <h2 class="section-title" data-i18n="quo.title">What clients <span class="grad-text">say</span></h2>
+        </div>
+      </div>
+      <div class="quotes" data-render="testimonials"></div>
+    </div>
+  </section>
+
+  <!-- ---------- PRICING ---------- -->
+  <section class="section" id="pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" data-i18n="pkg.eyebrow">Packages</span>
+          <h2 class="section-title" data-i18n="pkg.title">Simple, <span class="grad-text">fixed pricing</span></h2>
+          <p class="section-lead" data-i18n="pkg.lead">No hourly billing. You know the price before I open the timeline.</p>
+        </div>
+      </div>
+      <div class="pkgs" data-render="packages"></div>
+    </div>
+  </section>
+
+  <!-- ---------- FAQ ---------- -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head" style="justify-content:center;text-align:center">
+        <div style="margin-inline:auto">
+          <span class="eyebrow" style="justify-content:center" data-i18n="faq.eyebrow">Questions</span>
+          <h2 class="section-title" style="max-width:none" data-i18n="faq.title">Things clients <span class="grad-text">ask</span></h2>
+        </div>
+      </div>
+      <div class="faq" data-render="faq"></div>
+    </div>
+  </section>
+
+  <!-- ---------- CTA ---------- -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="cta">
+        <span class="eyebrow" style="justify-content:center" data-i18n="cta.eyebrow">Let's talk</span>
+        <h2 class="cta__title" data-bind="cta.title"></h2>
+        <p class="cta__sub" data-bind="cta.sub"></p>
+        <a class="btn btn--wa btn--lg" data-wa href="#" data-cursor="Chat">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+          <span data-bind="cta.button"></span>
+        </a>
+        <span class="cta__note">
+          <span class="dot"></span>
+          <span data-bind="contact.responseTime"></span>
+          <span aria-hidden="true">·</span>
+          <span data-bind="contact.phoneDisplay" dir="ltr"></span>
+        </span>
+        <div class="hero__socials" data-render="socials" style="margin-top:.5rem"></div>
+      </div>
+
+      <!-- lead-qualifying form: builds a WhatsApp message, sends no email -->
+      <div data-render="leadForm"></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ---------- FOOTER ---------- -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <a href="#top" class="logo">
+        <span class="logo__mark">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <defs><linearGradient id="fg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#14E0C8"/><stop offset="55%" stop-color="#FFB020"/><stop offset="100%" stop-color="#FF6A2B"/>
+            </linearGradient></defs>
+            <path d="M14 45V19l9 13 9-13v26" fill="none" stroke="url(#fg)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M38 45V19l12 13-12 13z" fill="url(#fg)"/>
+            <line x1="35" y1="6" x2="35" y2="58" stroke="#F2F3F7" stroke-width="1.5" opacity=".55"/>
+            <circle cx="35" cy="32" r="3.2" fill="#F2F3F7"/>
+          </svg>
+        </span>
+        <span class="logo__text">
+          <span class="logo__name" data-bind="profile.name"></span>
+          <span class="logo__role" data-bind="profile.role"></span>
+        </span>
+      </a>
+      <p style="color:var(--muted);max-width:40ch;font-size:var(--fs-small)" data-bind="profile.bio"></p>
+      <div class="hero__socials" data-render="socials"></div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span id="year"></span> <span data-bind="profile.name"></span></span>
+      <a data-wa href="#" dir="ltr" data-bind="contact.phoneDisplay"></a>
+      <a class="to-top" href="#top">
+        <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></i>
+        <span data-i18n="top">Back to top</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ---------- FLOATING WHATSAPP ---------- -->
+<a class="fab" id="fab" data-wa href="#" aria-label="WhatsApp" data-cursor="Chat">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<!-- ---------- LIGHTBOX ---------- -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Video player">
+  <button class="lightbox__close" id="lbClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="lightbox__inner" id="lbInner"></div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

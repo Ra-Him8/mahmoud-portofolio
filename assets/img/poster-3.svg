@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF6A2B"/>
+      <stop offset="100%" stop-color="#14E0C8"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#07070B" stop-opacity=".15"/>
+      <stop offset="100%" stop-color="#07070B" stop-opacity=".85"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="#0D0E15"/>
+  <rect width="1920" height="1080" fill="url(#bg)" opacity=".5"/>
+  <rect width="1920" height="1080" fill="url(#fade)"/>
+  <g fill="#F2F3F7" opacity=".07">
+    <rect x="0" y="0" width="1920" height="64"/>
+    <rect x="0" y="1016" width="1920" height="64"/>
+  </g>
+  <g fill="#07070B" opacity=".55">
+    <rect x="60"  y="16" width="70" height="32" rx="8"/><rect x="230" y="16" width="70" height="32" rx="8"/>
+    <rect x="400" y="16" width="70" height="32" rx="8"/><rect x="570" y="16" width="70" height="32" rx="8"/>
+    <rect x="740" y="16" width="70" height="32" rx="8"/><rect x="910" y="16" width="70" height="32" rx="8"/>
+    <rect x="1080" y="16" width="70" height="32" rx="8"/><rect x="1250" y="16" width="70" height="32" rx="8"/>
+    <rect x="1420" y="16" width="70" height="32" rx="8"/><rect x="1590" y="16" width="70" height="32" rx="8"/>
+    <rect x="1760" y="16" width="70" height="32" rx="8"/>
+    <rect x="60"  y="1032" width="70" height="32" rx="8"/><rect x="230" y="1032" width="70" height="32" rx="8"/>
+    <rect x="400" y="1032" width="70" height="32" rx="8"/><rect x="570" y="1032" width="70" height="32" rx="8"/>
+    <rect x="740" y="1032" width="70" height="32" rx="8"/><rect x="910" y="1032" width="70" height="32" rx="8"/>
+    <rect x="1080" y="1032" width="70" height="32" rx="8"/><rect x="1250" y="1032" width="70" height="32" rx="8"/>
+    <rect x="1420" y="1032" width="70" height="32" rx="8"/><rect x="1590" y="1032" width="70" height="32" rx="8"/>
+    <rect x="1760" y="1032" width="70" height="32" rx="8"/>
+  </g>
+  <circle cx="960" cy="540" r="86" fill="#F2F3F7" opacity=".12"/>
+  <path d="M932 494l62 46-62 46z" fill="#F2F3F7" opacity=".8"/>
+  <text x="960" y="700" text-anchor="middle" font-family="Sora,Inter,sans-serif" font-size="30"
+        font-weight="600" letter-spacing="10" fill="#F2F3F7" opacity=".45">PLACEHOLDER</text>
+</svg>

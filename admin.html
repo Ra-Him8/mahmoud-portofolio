@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Control Panel — Mahmoud Mohamed</title>
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#14E0C8"/><stop offset="55%" stop-color="#FFB020"/><stop offset="100%" stop-color="#FF6A2B"/>
+      </linearGradient></defs>
+      <rect width="64" height="64" rx="14" fill="#14161F"/>
+      <path d="M14 45V19l9 13 9-13v26" fill="none" stroke="url(#g)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M38 45V19l12 13-12 13z" fill="url(#g)"/>
+      <line x1="35" y1="8" x2="35" y2="56" stroke="#F2F3F7" stroke-width="1.6" opacity=".55"/>
+      <circle cx="35" cy="32" r="3.2" fill="#F2F3F7"/>
+    </svg>
+    <span>
+      <b>Control Panel</b>
+      <small>لوحة التحكم</small>
+    </span>
+  </div>
+
+  <span class="saved" id="saved"><i></i> Saved</span>
+  <a class="btn" href="index.html" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z"/><circle cx="12" cy="12" r="3"/></svg>
+    Preview site
+  </a>
+  <button class="btn" id="importBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 16V4M7 9l5-5 5 5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+    Import
+  </button>
+  <button class="btn btn--warn" id="resetBtn">Reset</button>
+  <button class="btn btn--go" id="downloadBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v12M7 11l5 5 5-5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
+    Download data.js
+  </button>
+  <input type="file" id="importFile" accept=".js,.json" hidden>
+</div>
+
+<div class="shell">
+  <aside class="side" id="side"></aside>
+  <main class="main" id="main"></main>
+</div>
+
+<div class="toast" id="toast">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5 11-11"/></svg>
+  <span id="toastMsg">Saved</span>
+</div>
+
+<!-- ------------------------------------------------------------------
+     PASSCODE LOCK
+     Default code: mahmoud2026
+
+     To change it: open the browser console on this page, run
+        fnv('your-new-code')
+     and paste the number into CODE_HASH below.
+
+     Locked out? Set CODE_HASH to 0 and the lock switches off.
+
+     Be clear about what this is: a lock on a door that is not on the
+     street. This panel is NOT published with your website (see
+     _config.yml), and even if someone did open it, their edits only
+     change what THEY see in THEIR browser. Your live site reads
+     assets/js/data.js from your GitHub repo - only your GitHub account
+     can change that.
+     ------------------------------------------------------------------ -->
+<div class="lock" id="lock">
+  <form class="lock__box" id="lockForm">
+    <svg class="lock__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+      <rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/>
+    </svg>
+    <h1>Control Panel</h1>
+    <p>This is your private editor. Enter your passcode.<br><span dir="rtl">دي لوحة التحكم بتاعتك. اكتب الكود.</span></p>
+    <input type="password" id="lockInput" placeholder="Passcode" autocomplete="current-password" autofocus>
+    <button type="submit" class="btn btn--go">Unlock</button>
+    <span class="lock__err" id="lockErr" hidden>Wrong passcode. Try again.</span>
+  </form>
+</div>
+
+<script>
+(function () {
+  var CODE_HASH = 1171765698;          /* mahmoud2026 - change me */
+  var KEY = 'mm_admin_ok';
+
+  /* FNV-1a. Not cryptography - it works on file:// where crypto.subtle
+     does not, and the real protection is that this page is never published. */
+  window.fnv = function (str) {
+    var h = 2166136261 >>> 0;
+    for (var i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = Math.imul(h, 16777619) >>> 0;
+    }
+    return h >>> 0;
+  };
+
+  function boot() {
+    var lock = document.getElementById('lock');
+    if (lock) lock.remove();
+    ['assets/js/data.js', 'assets/js/admin.js'].reduce(function (chain, src) {
+      return chain.then(function () {
+        return new Promise(function (done, fail) {
+          var t = document.createElement('script');
+          t.src = src; t.onload = done; t.onerror = fail;
+          document.body.appendChild(t);
+        });
+      });
+    }, Promise.resolve());
+  }
+
+  var unlocked = false;
+  try { unlocked = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+  if (!CODE_HASH || unlocked) { boot(); return; }
+
+  document.getElementById('lockForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var input = document.getElementById('lockInput');
+    if (fnv(input.value) === CODE_HASH) {
+      try { sessionStorage.setItem(KEY, '1'); } catch (e2) {}
+      boot();
+    } else {
+      document.getElementById('lockErr').hidden = false;
+      input.value = '';
+      input.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>

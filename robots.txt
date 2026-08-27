@@ -1,0 +1,11 @@
+# Mahmoud Mohamed — portfolio
+# If you buy a domain later, change the Sitemap line below to your address.
+
+User-agent: *
+Allow: /
+
+# The control panel is yours, not Google's. It is not published at all
+# (see _config.yml) — this line is a second lock on the same door.
+Disallow: /admin.html
+
+Sitemap: https://ra-him8.github.io/mahmoud-portofolio/sitemap.xml

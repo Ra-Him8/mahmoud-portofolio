@@ -1,0 +1,76 @@
+================================================================
+  YOUR VIDEOS LIVE HERE
+  فيديوهاتك مكانها هنا
+================================================================
+
+THERE ARE TWO FOLDERS. THIS MATTERS.
+فيه فولدرين. دي نقطة مهمة.
+
+  videos\           <- YOUR MASTERS. Big files. NEVER go online.
+                       الماسترز بتاعتك. ملفات كبيرة. ماتترفعش على النت.
+
+  videos\web\       <- WHAT THE WEBSITE USES. Small. This is what you upload.
+                       اللي الموقع بيستخدمه. صغير. ده اللي بترفعه.
+
+Think of it like masters vs. deliverables. Same idea.
+
+Right now your masters are 382 MB. The web copies are 22 MB.
+reel1.mp4 alone was 293 MB (4K, 60fps) - that file would never have
+finished loading on Egyptian mobile data. It is now 4.8 MB.
+
+
+ADDING A NEW VIDEO - the easy way
+---------------------------------
+1. Drop your export anywhere.
+2. Drag it ONTO  COMPRESS-FOR-WEB.bat  (in this folder).
+   A black window opens, does the work, and says DONE.
+3. The web version appears in  videos\web4. Open admin.html -> Projects -> Add, and pick the new file.
+
+That is it. You never have to think about bitrates.
+
+
+ADDING A NEW VIDEO - if you'd rather export it yourself
+------------------------------------------------------
+  Format .......... H.264 MP4
+  Resolution ...... 1080x1920 vertical  /  1920x1080 horizontal
+  Bitrate ......... 2.5-3 Mbps  (VBR, 2-pass)
+  Frame rate ...... 30 fps
+  Audio ........... AAC 128 kbps  (KEEP IT - your sound design is the work)
+  Target size ..... under 8 MB
+
+Then put the file in  videos\web\  yourself.
+
+
+BEFORE / AFTER  -  needs TWO files per comparison
+-------------------------------------------------
+That section is switched OFF right now, because you gave me finished
+edits and it needs PAIRS. To switch it on, export the SAME shot twice:
+
+  videos\weba1-before.mp4    <- straight from camera, no grade
+  videos\weba1-after.mp4     <- your finished version
+
+Same shot, same length, same first frame. 5-10 seconds. No audio needed
+for these two - they play muted side by side.
+
+Then open  assets\js\data.js , find "beforeAfter", and delete the //
+in front of the block. The section reappears by itself.
+
+
+NAMING
+------
+Lowercase, no spaces, no Arabic in file names.
+
+  GOOD:  crover-real-estate.mp4
+  BAD:   Crover (final) 2.mp4
+
+
+BEFORE YOU PUBLISH
+------------------
+Upload  videos\web\  only.
+Do NOT upload your masters - that is 382 MB of nothing the site uses.
+
+
+IF A FILE IS MISSING
+--------------------
+The site shows a message naming the exact file it couldn't find.
+It does not break. Fix the name in admin.html and reload.
