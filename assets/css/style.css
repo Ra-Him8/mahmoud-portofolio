@@ -874,8 +874,15 @@ body[dir="rtl"] .hero__title{ letter-spacing:0; }
   background:var(--surface-2); box-shadow:var(--shadow);
 }
 .about__badge{
-  position:absolute; inset-block-end:-14px; inset-inline-start:50%;
-  transform:translateX(-50%); white-space:nowrap;
+  position:absolute; inset-block-end:-14px;
+  /* inset-inline-start:50% + translateX(-50%) mixed a LOGICAL offset with a
+     PHYSICAL one. In Arabic the inset flipped to the right edge but the
+     transform still pulled left, so the badge landed a full width off-centre,
+     spilled past the edge and stretched the page 57px wider than the phone.
+     inset-inline:0 + margin-inline:auto centres it in both directions with no
+     transform at all, so there is nothing left to disagree. */
+  inset-inline:0; margin-inline:auto; width:fit-content;
+  white-space:nowrap;
   display:inline-flex; align-items:center; gap:.5rem;
   padding:.6rem 1.1rem; border-radius:99px;
   background:var(--surface-3); border:1px solid var(--line);
