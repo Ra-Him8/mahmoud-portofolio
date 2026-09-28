@@ -98,12 +98,12 @@ window.PORTFOLIO_DATA = {
   ],
 
   showreel: {
-    src:    "videos/web/youtube-longform.mp4",
-    poster: "assets/img/poster-youtube.jpg",
+    src:    "videos/web/top_real.mp4",
+    poster: "",
     title:  { en: "Start with this one",  ar: "ابدأ بالفيديو ده" },
-    sub:    { en: "A full YouTube episode, cut end to end. Sound on.",
-              ar: "حلقة يوتيوب كاملة، مونتاج من الأول للآخر. شغّل الصوت." },
-    duration: "0:16"
+    sub:    { en: "My best reel — sound on.",
+              ar: "أحسن ريل ليا — شغّل الصوت." },
+    duration: "0:31"
   },
 
   /* ---------- 6. BEFORE / AFTER  — قبل وبعد ----------------------------
@@ -162,6 +162,38 @@ window.PORTFOLIO_DATA = {
      src: an .mp4 in videos/  OR  a YouTube link  OR  a Vimeo link.
      ratio: "16/9" for wide, "9/16" for vertical reels, "1/1" for square. */
   work: [
+    /* —— NEW: Your real reels —— */
+    { id: "r1", title: { en: "Featured Reel #1", ar: "ريل مميز #١" },
+      category: "shortform", ratio: "9/16", duration: "0:31",
+      src: "videos/web/top_real.mp4", poster: "",
+      tags: ["Reel", "Colour Grade", "Sound Design"] },
+
+    { id: "r2", title: { en: "Featured Reel #2", ar: "ريل مميز #٢" },
+      category: "shortform", ratio: "9/16", duration: "1:19",
+      src: "videos/web/second-top-real.mp4", poster: "",
+      tags: ["Reel", "Colour Grade", "Beat Sync"] },
+
+    { id: "r3", title: { en: "Before & After Reel", ar: "ريل قبل وبعد" },
+      category: "shortform", ratio: "9/16", duration: "0:38",
+      src: "videos/web/before-and-after-real.mp4", poster: "",
+      tags: ["Before & After", "Colour Grade"] },
+
+    { id: "r4", title: { en: "Reel #3", ar: "ريل #٣" },
+      category: "shortform", ratio: "9/16", duration: "0:38",
+      src: "videos/web/real0.mp4", poster: "",
+      tags: ["Reel", "Motion GFX", "Colour Grade"] },
+
+    { id: "r5", title: { en: "Reel #4", ar: "ريل #٤" },
+      category: "shortform", ratio: "9/16", duration: "0:31",
+      src: "videos/web/real1.mp4", poster: "",
+      tags: ["Reel", "Sound Design", "Beat Sync"] },
+
+    { id: "r6", title: { en: "Reel #5", ar: "ريل #٥" },
+      category: "shortform", ratio: "9/16", duration: "0:43",
+      src: "videos/web/real2.mp4", poster: "",
+      tags: ["Reel", "Colour Grade", "Pacing"] },
+
+    /* —— Previous projects —— */
     { id: "w1", title: { en: "Me & You Café — Brand Film", ar: "مي آند يو كافيه — فيلم إعلاني" },
       category: "commercial", ratio: "9/16", duration: "0:13",
       src: "videos/web/coffe.mp4", poster: "assets/img/poster-coffe.jpg",
